@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Legacy | UNKNOWN ARMY</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#030303;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:rgba(0,0,0,0.88);
+    border-bottom:1px solid rgba(255,0,0,0.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:34px;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+}
+
+.navbar a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#ff2020;
+    text-shadow:0 0 12px red;
+}
+
+/* HERO */
+.hero{
+    min-height:75vh;
+    padding:160px 8% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,0.95),rgba(0,0,0,0.65),rgba(0,0,0,0.88)),
+        url("images/gallery4.jpeg") center/cover;
+    border-bottom:1px solid #300000;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(255,0,0,0.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,0,0,0.04) 1px,transparent 1px);
+    background-size:45px 45px;
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+}
+
+.tag{
+    color:#ff2020;
+    font-size:12px;
+    letter-spacing:5px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,100px);
+    line-height:0.9;
+    letter-spacing:5px;
+    font-weight:900;
+    text-shadow:0 0 30px rgba(255,0,0,0.35);
+}
+
+.hero h1 span{
+    color:#ff1717;
+}
+
+.hero p{
+    margin-top:25px;
+    max-width:650px;
+    color:#bbb;
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* SECTION */
+.legacy-section{
+    padding:100px 8%;
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title .small{
+    color:#ff2020;
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:bold;
+}
+
+.section-title h2{
+    margin-top:12px;
+    font-size:clamp(35px,6vw,65px);
+    letter-spacing:3px;
+}
+
+/* TIMELINE */
+.timeline{
+    max-width:1050px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:linear-gradient(
+        transparent,
+        #ff2020,
+        #ff2020,
+        transparent
+    );
+    box-shadow:0 0 15px red;
+}
+
+.card{
+    width:45%;
+    margin-bottom:70px;
+    padding:30px;
+    background:linear-gradient(145deg,#111,#070707);
+    border:1px solid #292929;
+    position:relative;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ff2020;
+    box-shadow:
+        0 0 25px rgba(255,0,0,0.18),
+        inset 0 0 25px rgba(255,0,0,0.03);
+}
+
+.card:nth-child(odd){
+    margin-right:auto;
+}
+
+.card:nth-child(even){
+    margin-left:auto;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:#ff2020;
+    border-radius:50%;
+    top:38px;
+    box-shadow:0 0 15px red;
+}
+
+.card:nth-child(odd)::before{
+    right:-62px;
+}
+
+.card:nth-child(even)::before{
+    left:-62px;
+}
+
+.year{
+    color:#ff2020;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    font-size:25px;
+    letter-spacing:1px;
+    line-height:1.2;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#999;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* SPECIAL 2021 */
+.champion{
+    border-color:#4b0000;
+    background:
+        linear-gradient(rgba(10,0,0,0.9),rgba(5,5,5,0.95)),
+        url("images/gallery2.jpeg") center/cover;
+}
+
+.champion h3{
+    color:white;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:18px;
+    padding:8px 14px;
+    border:1px solid #ff2020;
+    color:#ff2020;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+/* FINAL STAT */
+.final{
+    margin-top:30px;
+    text-align:center;
+    padding:70px 20px;
+    border-top:1px solid #250000;
+    border-bottom:1px solid #250000;
+    background:
+        radial-gradient(circle at center,rgba(255,0,0,0.12),transparent 60%);
+}
+
+.final h2{
+    font-size:clamp(30px,5vw,55px);
+    letter-spacing:4px;
+}
+
+.final h2 span{
+    color:#ff2020;
+}
+
+.final p{
+    margin:18px auto 0;
+    max-width:650px;
+    color:#999;
+    line-height:1.7;
+}
+
+/* FOOTER */
+footer{
+    padding:35px 20px;
+    text-align:center;
+    color:#555;
+    font-size:11px;
+    letter-spacing:2px;
+    background:#020202;
+}
+
+footer span{
+    color:#ff2020;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .navbar{
+        gap:14px;
+        padding:0 10px;
+        overflow-x:auto;
+        justify-content:flex-start;
+    }
+
+    .navbar a{
+        font-size:9px;
+        letter-spacing:1px;
+        white-space:nowrap;
+    }
+
+    .hero{
+        padding:140px 7% 80px;
+        min-height:70vh;
+    }
+
+    .hero h1{
+        letter-spacing:2px;
+    }
+
+    .timeline::before{
+        left:10px;
+    }
+
+    .card,
+    .card:nth-child(odd),
+    .card:nth-child(even){
+        width:calc(100% - 35px);
+        margin-left:35px;
+        margin-right:0;
+    }
+
+    .card::before,
+    .card:nth-child(odd)::before,
+    .card:nth-child(even)::before{
+        left:-32px;
+        right:auto;
+    }
+
+    .legacy-section{
+        padding:80px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="legacy.html">LEGACY</a>
+    <a href="gaming.html">GAMING</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="leader.html">LEADER</a>
+    <a href="join.html">JOIN</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="tag">UNKNOWN ARMY // HISTORY</div>
+
+        <h1>THE UNKNOWN<br><span>LEGACY</span></h1>
+
+        <p>
+            A journey built through years of competition,
+            discipline and battles. From 2017 to the national level,
+            UNKNOWN ARMY continues to build its name.
+        </p>
+    </div>
+</section>
+
+<section class="legacy-section">
+
+    <div class="section-title">
+        <div class="small">THE JOURNEY</div>
+        <h2>OUR LEGACY</h2>
+    </div>
+
+    <div class="timeline">
+
+        <div class="card">
+            <div class="year">2017</div>
+
+            <h3>THE YEAR THE UNKNOWN LEGACY BEGAN.</h3>
+
+            <p>
+                UNKNOWN ARMY was forged in 2017 with one purpose —
+                to compete, dominate and leave a mark.
+            </p>
+        </div>
+
+
+        <div class="card champion">
+            <div class="year">2021</div>
+
+            <h3>CITY TOURNAMENT CHAMPIONS — 2021.</h3>
+
+            <p>
+                The hard work turned into a major achievement.
+                UNKNOWN ARMY won a City Tournament in 2021,
+                proving that the UNKNOWN name belongs on the battlefield.
+            </p>
+
+            <div class="badge">CITY CHAMPIONS</div>
+        </div>
+
+
+        <div class="card">
+            <div class="year">NATIONAL</div>
+
+            <h3>NATIONAL LEVEL — WE MADE OUR MARK.</h3>
+
+            <p>
+                The journey moved beyond the local battlefield.
+                UNKNOWN ARMY reached the national level,
+                taking the legacy to an even bigger stage.
+            </p>
+
+            <div class="badge">NATIONAL LEVEL</div>
+        </div>
+
+    </div>
+
+    <div class="final">
+        <h2>BUILT IN <span>SILENCE.</span></h2>
+        <p>
+            The legacy is not finished.
+            Every battle adds another chapter to the UNKNOWN story.
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 <span>UNKNOWN ARMY</span> — FORGED SINCE 2017
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | UNKNOWN ARMY</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#030303;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:rgba(0,0,0,.9);
+    border-bottom:1px solid rgba(255,0,0,.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:34px;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+}
+
+.navbar a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#ff2020;
+    text-shadow:0 0 12px red;
+}
+
+/* HERO */
+.hero{
+    min-height:58vh;
+    padding:150px 8% 80px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.55),rgba(0,0,0,.9)),
+        url("images/gallery5.jpeg") center/cover;
+    border-bottom:1px solid #300000;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(255,0,0,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,0,0,.04) 1px,transparent 1px);
+    background-size:45px 45px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.tag{
+    color:#ff2020;
+    font-size:12px;
+    letter-spacing:5px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(50px,8vw,100px);
+    line-height:.9;
+    letter-spacing:5px;
+    font-weight:900;
+    text-shadow:0 0 30px rgba(255,0,0,.4);
+}
+
+.hero h1 span{
+    color:#ff1717;
+}
+
+.hero p{
+    margin-top:25px;
+    max-width:600px;
+    color:#aaa;
+    line-height:1.8;
+}
+
+/* GALLERY */
+.gallery-section{
+    padding:100px 7%;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.heading .small{
+    color:#ff2020;
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:bold;
+}
+
+.heading h2{
+    margin-top:12px;
+    font-size:clamp(35px,6vw,65px);
+    letter-spacing:3px;
+}
+
+/* GRID */
+.gallery{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.photo{
+    height:330px;
+    position:relative;
+    overflow:hidden;
+    background:#080808;
+    border:1px solid #252525;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:brightness(.72) contrast(1.08);
+    transition:.5s;
+}
+
+.photo:hover img{
+    transform:scale(1.07);
+    filter:brightness(.95) contrast(1.1);
+}
+
+.photo:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 55%,
+        rgba(0,0,0,.85)
+    );
+    pointer-events:none;
+}
+
+.photo:hover{
+    border-color:#ff2020;
+    box-shadow:0 0 25px rgba(255,0,0,.18);
+}
+
+/* LABEL */
+.label{
+    position:absolute;
+    left:18px;
+    bottom:16px;
+    z-index:2;
+}
+
+.label span{
+    display:block;
+    color:#ff2020;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:5px;
+}
+
+.label strong{
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+/* FEATURED */
+.featured{
+    grid-column:span 2;
+    height:430px;
+}
+
+/* FOOTER */
+footer{
+    padding:35px 20px;
+    text-align:center;
+    color:#555;
+    font-size:11px;
+    letter-spacing:2px;
+    background:#020202;
+    border-top:1px solid #1b0000;
+}
+
+footer span{
+    color:#ff2020;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+    .navbar{
+        gap:14px;
+        padding:0 10px;
+        overflow-x:auto;
+        justify-content:flex-start;
+    }
+
+    .navbar a{
+        font-size:9px;
+        letter-spacing:1px;
+        white-space:nowrap;
+    }
+
+    .hero{
+        padding:140px 7% 75px;
+    }
+
+    .gallery-section{
+        padding:75px 6%;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .featured{
+        grid-column:span 1;
+        height:330px;
+    }
+
+    .photo{
+        height:300px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="legacy.html">LEGACY</a>
+    <a href="gaming.html">GAMING</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="leader.html">LEADER</a>
+    <a href="join.html">JOIN</a>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="tag">UNKNOWN ARMY // BATTLE ARCHIVE</div>
+
+        <h1>THE<br><span>GALLERY.</span></h1>
+
+        <p>
+            Real moments. Real battles. Real memories.
+            A glimpse into the UNKNOWN ARMY battlefield.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="gallery-section">
+
+    <div class="heading">
+        <div class="small">BATTLE ARCHIVE</div>
+        <h2>UNKNOWN MOMENTS</h2>
+    </div>
+
+    <div class="gallery">
+
+        <div class="photo featured">
+            <img src="images/gallery1.jpeg" alt="UNKNOWN ARMY gameplay">
+
+            <div class="label">
+                <span>BATTLEFIELD</span>
+                <strong>UNKNOWN IN ACTION</strong>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="images/gallery2.jpeg" alt="UNKNOWN ARMY victory">
+
+            <div class="label">
+                <span>VICTORY</span>
+                <strong>THE FIGHT PAID OFF</strong>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="images/gallery3.jpeg" alt="Free Fire gaming">
+
+            <div class="label">
+                <span>THE GRIND</span>
+                <strong>BUILT THROUGH PLAY</strong>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="images/gallery4.jpeg" alt="UNKNOWN ARMY match">
+
+            <div class="label">
+                <span>BATTLE</span>
+                <strong>NO EASY FIGHTS</strong>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="images/gallery5.jpeg" alt="Gaming setup">
+
+            <div class="label">
+                <span>THE SETUP</span>
+                <strong>WHERE BATTLES BEGIN</strong>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="images/gallery6.jpeg" alt="UNKNOWN ARMY scoreboard">
+
+            <div class="label">
+                <span>CLASH SQUAD</span>
+                <strong>UNKNOWN ARMY</strong>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="images/gallery7.jpeg" alt="UNKNOWN ARMY guild">
+
+            <div class="label">
+                <span>THE GUILD</span>
+                <strong>ONE NAME. ONE ARMY.</strong>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 <span>UNKNOWN ARMY</span> — FORGED SINCE 2017
+</footer>
+
+</body>
+</html>

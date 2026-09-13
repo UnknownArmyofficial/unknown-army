@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Leader | UNKNOWN ARMY</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#030303;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:rgba(0,0,0,.9);
+    border-bottom:1px solid rgba(255,0,0,.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:34px;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+}
+
+.navbar a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#ff2020;
+    text-shadow:0 0 12px red;
+}
+
+/* HERO */
+.hero{
+    min-height:70vh;
+    padding:150px 8% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.58),rgba(0,0,0,.92)),
+        url("images/gallery3.jpeg") center/cover;
+    border-bottom:1px solid #300000;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(255,0,0,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,0,0,.04) 1px,transparent 1px);
+    background-size:45px 45px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+}
+
+.tag{
+    color:#ff2020;
+    font-size:12px;
+    letter-spacing:5px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,100px);
+    line-height:.9;
+    letter-spacing:5px;
+    font-weight:900;
+    text-shadow:0 0 30px rgba(255,0,0,.4);
+}
+
+.hero h1 span{
+    color:#ff1717;
+}
+
+.hero p{
+    margin-top:28px;
+    max-width:650px;
+    color:#aaa;
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* LEADER SECTION */
+.leader{
+    padding:100px 8%;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:65px;
+}
+
+.heading .small{
+    color:#ff2020;
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:bold;
+}
+
+.heading h2{
+    margin-top:12px;
+    font-size:clamp(35px,6vw,65px);
+    letter-spacing:3px;
+}
+
+/* PROFILE */
+.profile{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:42% 58%;
+    min-height:520px;
+    background:#090909;
+    border:1px solid #292929;
+    overflow:hidden;
+}
+
+.profile-image{
+    min-height:520px;
+    position:relative;
+    background:
+        linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.85)),
+        url("images/gallery5.jpeg") center/cover;
+}
+
+.profile-image:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-right:1px solid rgba(255,0,0,.25);
+    box-shadow:inset -20px 0 40px rgba(255,0,0,.08);
+}
+
+.profile-label{
+    position:absolute;
+    bottom:25px;
+    left:25px;
+    z-index:2;
+}
+
+.profile-label span{
+    display:block;
+    color:#ff2020;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:4px;
+    margin-bottom:7px;
+}
+
+.profile-label strong{
+    font-size:28px;
+    letter-spacing:3px;
+}
+
+/* CONTENT */
+.profile-content{
+    padding:55px 50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.role{
+    color:#ff2020;
+    font-size:11px;
+    letter-spacing:4px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.profile-content h2{
+    font-size:clamp(40px,6vw,70px);
+    letter-spacing:4px;
+    line-height:.95;
+    margin-bottom:25px;
+}
+
+.profile-content h2 span{
+    color:#ff2020;
+}
+
+.profile-content p{
+    color:#999;
+    line-height:1.8;
+    font-size:15px;
+    max-width:550px;
+}
+
+/* INFO */
+.info{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:35px;
+}
+
+.info-box{
+    padding:18px;
+    background:#050505;
+    border:1px solid #242424;
+}
+
+.info-box small{
+    display:block;
+    color:#666;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.info-box strong{
+    font-size:18px;
+}
+
+/* QUOTE */
+.quote{
+    max-width:1050px;
+    margin:70px auto 0;
+    padding:55px 30px;
+    text-align:center;
+    border-top:1px solid #300000;
+    border-bottom:1px solid #300000;
+    background:
+        radial-gradient(circle at center,rgba(255,0,0,.1),transparent 65%);
+}
+
+.quote .mark{
+    color:#ff2020;
+    font-size:40px;
+    font-weight:bold;
+}
+
+.quote h3{
+    margin-top:10px;
+    font-size:clamp(24px,4vw,42px);
+    letter-spacing:2px;
+}
+
+.quote p{
+    margin-top:15px;
+    color:#777;
+    letter-spacing:2px;
+    font-size:10px;
+}
+
+/* FOOTER */
+footer{
+    padding:35px 20px;
+    text-align:center;
+    color:#555;
+    font-size:11px;
+    letter-spacing:2px;
+    background:#020202;
+    border-top:1px solid #1b0000;
+}
+
+footer span{
+    color:#ff2020;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .navbar{
+        gap:14px;
+        padding:0 10px;
+        overflow-x:auto;
+        justify-content:flex-start;
+    }
+
+    .navbar a{
+        font-size:9px;
+        letter-spacing:1px;
+        white-space:nowrap;
+    }
+
+    .hero{
+        padding:140px 7% 80px;
+    }
+
+    .hero h1{
+        letter-spacing:2px;
+    }
+
+    .leader{
+        padding:80px 6%;
+    }
+
+    .profile{
+        grid-template-columns:1fr;
+    }
+
+    .profile-image{
+        min-height:400px;
+    }
+
+    .profile-content{
+        padding:40px 25px;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="legacy.html">LEGACY</a>
+    <a href="gaming.html">GAMING</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="leader.html">LEADER</a>
+    <a href="join.html">JOIN</a>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="tag">UNKNOWN ARMY // COMMAND</div>
+
+        <h1>THE ONE<br><span>WHO LEADS.</span></h1>
+
+        <p>
+            Every army needs someone who stands first,
+            carries the vision and keeps moving when the
+            battlefield gets difficult.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="leader">
+
+    <div class="heading">
+        <div class="small">THE COMMANDER</div>
+        <h2>UNKNOWN</h2>
+    </div>
+
+    <div class="profile">
+
+        <div class="profile-image">
+
+            <div class="profile-label">
+                <span>LEADER // 001</span>
+                <strong>UNKNOWN</strong>
+            </div>
+
+        </div>
+
+        <div class="profile-content">
+
+            <div class="role">FOUNDER & LEADER</div>
+
+            <h2>THE<br><span>UNKNOWN.</span></h2>
+
+            <p>
+                A player since 2017, UNKNOWN stands at the heart
+                of UNKNOWN ARMY. From the beginning of the journey
+                to the biggest stages reached by the guild, the
+                mindset has remained the same — compete, improve
+                and build a legacy.
+            </p>
+
+            <div class="info">
+
+                <div class="info-box">
+                    <small>PLAYER SINCE</small>
+                    <strong>2017</strong>
+                </div>
+
+                <div class="info-box">
+                    <small>ROLE</small>
+                    <strong>LEADER</strong>
+                </div>
+
+                <div class="info-box">
+                    <small>GUILD</small>
+                    <strong>UNKNOWN ARMY</strong>
+                </div>
+
+                <div class="info-box">
+                    <small>MINDSET</small>
+                    <strong>NEVER ORDINARY</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="quote">
+
+        <div class="mark">“</div>
+
+        <h3>
+            BUILT IN SILENCE.<br>
+            FEARED IN BATTLE.
+        </h3>
+
+        <p>UNKNOWN ARMY — FORGED SINCE 2017</p>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 <span>UNKNOWN ARMY</span> — FORGED SINCE 2017
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gaming | UNKNOWN ARMY</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#030303;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:rgba(0,0,0,.9);
+    border-bottom:1px solid rgba(255,0,0,.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:34px;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+}
+
+.navbar a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#ff2020;
+    text-shadow:0 0 12px red;
+}
+
+/* HERO */
+.hero{
+    min-height:78vh;
+    padding:150px 8% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.62),rgba(0,0,0,.9)),
+        url("images/gallery1.jpeg") center/cover;
+    border-bottom:1px solid #300000;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(255,0,0,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,0,0,.04) 1px,transparent 1px);
+    background-size:45px 45px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+}
+
+.tag{
+    color:#ff2020;
+    font-size:12px;
+    letter-spacing:5px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,100px);
+    line-height:.9;
+    letter-spacing:5px;
+    font-weight:900;
+    text-shadow:0 0 30px rgba(255,0,0,.4);
+}
+
+.hero h1 span{
+    color:#ff1717;
+}
+
+.hero p{
+    margin-top:28px;
+    max-width:650px;
+    color:#aaa;
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* GAMING SECTION */
+.gaming{
+    padding:100px 8%;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:65px;
+}
+
+.heading .small{
+    color:#ff2020;
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:bold;
+}
+
+.heading h2{
+    margin-top:12px;
+    font-size:clamp(35px,6vw,65px);
+    letter-spacing:3px;
+}
+
+/* CARDS */
+.grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    min-height:300px;
+    padding:30px;
+    position:relative;
+    overflow:hidden;
+    background:#090909;
+    border:1px solid #292929;
+    transition:.4s;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background:#ff2020;
+    box-shadow:0 0 15px red;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ff2020;
+    box-shadow:0 0 30px rgba(255,0,0,.15);
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:25px;
+}
+
+.card h3{
+    font-size:21px;
+    letter-spacing:2px;
+    margin-bottom:16px;
+}
+
+.card p{
+    color:#888;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* BATTLE BANNER */
+.battle{
+    margin-top:80px;
+    min-height:380px;
+    display:flex;
+    align-items:center;
+    padding:60px;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.55),rgba(0,0,0,.9)),
+        url("images/gallery6.jpeg") center/cover;
+    border:1px solid #300000;
+}
+
+.battle-content{
+    max-width:650px;
+}
+
+.battle h2{
+    font-size:clamp(35px,6vw,65px);
+    letter-spacing:3px;
+}
+
+.battle h2 span{
+    color:#ff2020;
+}
+
+.battle p{
+    margin-top:20px;
+    color:#aaa;
+    line-height:1.8;
+}
+
+/* STATS */
+.stats{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    min-width:150px;
+    padding:18px 22px;
+    background:#080808;
+    border:1px solid #252525;
+}
+
+.stat strong{
+    display:block;
+    color:#ff2020;
+    font-size:25px;
+}
+
+.stat small{
+    color:#777;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+/* FOOTER */
+footer{
+    padding:35px 20px;
+    text-align:center;
+    color:#555;
+    font-size:11px;
+    letter-spacing:2px;
+    background:#020202;
+    border-top:1px solid #1b0000;
+}
+
+footer span{
+    color:#ff2020;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .navbar{
+        gap:14px;
+        padding:0 10px;
+        overflow-x:auto;
+        justify-content:flex-start;
+    }
+
+    .navbar a{
+        font-size:9px;
+        letter-spacing:1px;
+        white-space:nowrap;
+    }
+
+    .hero{
+        padding:140px 7% 80px;
+    }
+
+    .hero h1{
+        letter-spacing:2px;
+    }
+
+    .gaming{
+        padding:80px 6%;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .battle{
+        padding:40px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="legacy.html">LEGACY</a>
+    <a href="gaming.html">GAMING</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="leader.html">LEADER</a>
+    <a href="join.html">JOIN</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="tag">UNKNOWN ARMY // GAMING DIVISION</div>
+
+        <h1>BUILT FOR<br><span>BATTLE.</span></h1>
+
+        <p>
+            Gaming is not just about playing.
+            It is about skill, discipline, teamwork and the mindset
+            to stay standing when the battlefield gets harder.
+        </p>
+
+    </div>
+</section>
+
+<section class="gaming">
+
+    <div class="heading">
+        <div class="small">THE UNKNOWN MINDSET</div>
+        <h2>HOW WE PLAY</h2>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>PRECISION</h3>
+            <p>
+                Every move matters. Every decision can change the fight.
+                We play with focus, control and purpose.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚔️</div>
+            <h3>COMBAT</h3>
+            <p>
+                We step into the battlefield ready to compete.
+                Pressure does not define us — performance does.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">👥</div>
+            <h3>TEAMWORK</h3>
+            <p>
+                A strong squad is more than individual skill.
+                Communication, trust and teamwork build the difference.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔥</div>
+            <h3>DISCIPLINE</h3>
+            <p>
+                Talent gets attention.
+                Discipline keeps you improving when nobody is watching.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏆</div>
+            <h3>COMPETITION</h3>
+            <p>
+                From local battles to bigger stages,
+                every match is another opportunity to prove ourselves.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧠</div>
+            <h3>MINDSET</h3>
+            <p>
+                Stay calm. Read the battlefield.
+                Adapt fast. Never underestimate the UNKNOWN.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="battle">
+
+        <div class="battle-content">
+
+            <h2>ONE NAME.<br><span>UNKNOWN ARMY.</span></h2>
+
+            <p>
+                Forged since 2017. Built through competition.
+                The battlefield changes, but the mindset remains.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>2017</strong>
+                    <small>FOUNDED</small>
+                </div>
+
+                <div class="stat">
+                    <strong>2021</strong>
+                    <small>CITY CHAMPIONS</small>
+                </div>
+
+                <div class="stat">
+                    <strong>NATIONAL</strong>
+                    <small>LEVEL REACHED</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 <span>UNKNOWN ARMY</span> — FORGED SINCE 2017
+</footer>
+
+</body>
+</html>
