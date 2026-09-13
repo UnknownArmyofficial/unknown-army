@@ -91,6 +91,13 @@ body::before {
     transition: 0.3s;
 }
 
+    .navbar a::before {
+content: "◈";
+margin-right: 6px;
+color: #550000;
+transition: 0.3s;
+}
+
 .navbar a:hover {
     color: #ff2020;
 
@@ -99,7 +106,10 @@ body::before {
         0 0 18px rgba(255,0,0,.5);
 }
 
-
+.navbar a:hover::before {
+color: #ff2020;
+}
+    
 /* PAGE HERO */
 
 .page-hero {
